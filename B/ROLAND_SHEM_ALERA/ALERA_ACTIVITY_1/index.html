@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roland Shem J. Alera — Portfolio</title>
+    <meta name="description" content="Frontend & Backend Developer | NC2 Certified IT Technician | Iloilo, Philippines" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Page Loader -->
+    <div id="page-loader">
+      <div class="loader-logo">RSA<span>.</span></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+    <script>
+      // Loader
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          document.getElementById('page-loader').classList.add('hidden')
+        }, 800)
+      })
+
+      // Scroll progress bar
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight
+        const progress = (scrollTop / docHeight) * 100
+        document.getElementById('scroll-progress').style.width = progress + '%'
+
+        // Back to top visibility
+        const btn = document.getElementById('back-to-top')
+        if (scrollTop > 400) {
+          btn.classList.add('visible')
+        } else {
+          btn.classList.remove('visible')
+        }
+      })
+    </script>
+  </body>
+</html>
